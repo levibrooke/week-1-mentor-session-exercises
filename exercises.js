@@ -6,6 +6,11 @@
  * ie: "cat" => "tac"
  */
 
+ function firstReverse(str) {
+   var reversed = str.split("").reverse().join("");
+   return reversed;
+ }
+
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -14,6 +19,10 @@
  * ie: "cake" => "acek"
  */
 
+ function alphaOrder(str) {
+   return str.split("").sort().join("");
+ }
+
  /** Function: vowelCount
  * The function will take the str parameter being passed in and
  * return the number of vowels in the string
@@ -21,6 +30,10 @@
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
+
+ function vowelCount(str) {
+   
+ }
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -44,8 +57,8 @@
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
  * The module.exports syntax is a built-in javascript keyword that
- * allows functionality from this file to be used in other files.  
- * Here we are exporting an object with a bunch of keys that will reference 
+ * allows functionality from this file to be used in other files.
+ * Here we are exporting an object with a bunch of keys that will reference
  * the functions you have made. After you are done implementing a function,
  * change the 'null' to reference the corresponding function you have just created.
  * Then go into your terminal and run 'npm test' to see if the tests pass for your function.
@@ -56,9 +69,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
-}
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    // vowelCount: vowelCount,
+    // timeConvert: timeConvert,
+    // repeatString: repeatString
+};
