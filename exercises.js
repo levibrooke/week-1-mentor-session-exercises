@@ -6,6 +6,18 @@
  * ie: "cat" => "tac"
  */
 
+ function firstReverse(str) {
+   var reversed;
+
+   if (typeof str === "string") {
+     reversed = str.split("").reverse().join("");
+   } else {
+     return null;
+   }
+
+   return reversed;
+ }
+
  /** Function: alphaOrder
  * The function will take the str parameter being passed in and
  * return the string in alphabetical order
@@ -14,6 +26,16 @@
  * ie: "cake" => "acek"
  */
 
+ function alphaOrder(str) {
+   var newString;
+   if (typeof str === "string") {
+     newString = str.split("").sort().join("");
+   } else {
+     return null;
+   }
+   return newString;
+ }
+
  /** Function: vowelCount
  * The function will take the str parameter being passed in and
  * return the number of vowels in the string
@@ -21,6 +43,25 @@
  * @return {number} count of vowels
  * ie: "oreo" => 3
  */
+
+ function vowelCount(str) {
+   var num = 0;
+   var vowels = ["a","e","i","o","u"];
+
+   if (typeof str === "string") {
+
+     str.split("");
+
+     for (var i = 0; i < str.length; i++) {
+       if (vowels.includes(str[i])) {
+         num++;
+       }
+     }
+     return num;
+   } else {
+     return null;
+   }
+ }
 
  /** Function: timeConvert
  * The function will take the str parameter representing the amount of minutes being passed in and
@@ -31,6 +72,20 @@
  * ie: 68 => 1:8
  */
 
+ function timeConvert(str) {
+
+   if (typeof str === "number") {
+     var hours = str / 60;
+     var rhours = Math.floor(hours);
+     var min = (hours - rhours) * 60;
+     var rmin = Math.round(min);
+
+     return rhours + ":" + rmin;
+   } else {
+     return null;
+   }
+ }
+
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -40,12 +95,27 @@
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
 
+ function repeatString(str, times) {
+
+   var newString = "";
+
+   if (typeof str === "string" && typeof times === "number") {
+     while (times > 0) {
+       newString += str;
+       times--;
+     }
+   } else {
+     return null;
+   }
+   return newString;
+ }
+
 
 /**
  * Below here we see a module.exports which is set to an object with a bunch of keys.
  * The module.exports syntax is a built-in javascript keyword that
- * allows functionality from this file to be used in other files.  
- * Here we are exporting an object with a bunch of keys that will reference 
+ * allows functionality from this file to be used in other files.
+ * Here we are exporting an object with a bunch of keys that will reference
  * the functions you have made. After you are done implementing a function,
  * change the 'null' to reference the corresponding function you have just created.
  * Then go into your terminal and run 'npm test' to see if the tests pass for your function.
@@ -56,9 +126,9 @@
  */
 
 module.exports = {
-    firstReverse: null,
-    alphaOrder: null,
-    vowelCount: null,
-    timeConvert: null,
-    repeatString: null
-}
+    firstReverse: firstReverse,
+    alphaOrder: alphaOrder,
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString
+};
