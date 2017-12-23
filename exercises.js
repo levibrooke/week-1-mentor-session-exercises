@@ -7,7 +7,14 @@
  */
 
  function firstReverse(str) {
-   var reversed = str.split("").reverse().join("");
+   var reversed;
+
+   if (typeof str === "string") {
+     reversed = str.split("").reverse().join("");
+   } else {
+     return null;
+   }
+
    return reversed;
  }
 
@@ -20,7 +27,13 @@
  */
 
  function alphaOrder(str) {
-   return str.split("").sort().join("");
+   var newString;
+   if (typeof str === "string") {
+     newString = str.split("").sort().join("");
+   } else {
+     return null;
+   }
+   return newString;
  }
 
  /** Function: vowelCount
@@ -32,7 +45,22 @@
  */
 
  function vowelCount(str) {
-   
+   var num = 0;
+   var vowels = ["a","e","i","o","u"];
+
+   if (typeof str === "string") {
+
+     str.split("");
+
+     for (var i = 0; i < str.length; i++) {
+       if (vowels.includes(str[i])) {
+         num++;
+       }
+     }
+     return num;
+   } else {
+     return null;
+   }
  }
 
  /** Function: timeConvert
@@ -44,6 +72,20 @@
  * ie: 68 => 1:8
  */
 
+ function timeConvert(str) {
+
+   if (typeof str === "number") {
+     var hours = str / 60;
+     var rhours = Math.floor(hours);
+     var min = (hours - rhours) * 60;
+     var rmin = Math.round(min);
+
+     return rhours + ":" + rmin;
+   } else {
+     return null;
+   }
+ }
+
  /** Function: repeatString
  * The function will take in two parameters and repeat a given string (first argument)
  * num times (second argument). Return an empty string if num is a negative number
@@ -52,6 +94,21 @@
  * @return {string} repeated num times
  * i.e repeatString("money", 3) => "moneymoneymoney".
  */
+
+ function repeatString(str, times) {
+
+   var newString = "";
+
+   if (typeof str === "string" && typeof times === "number") {
+     while (times > 0) {
+       newString += str;
+       times--;
+     }
+   } else {
+     return null;
+   }
+   return newString;
+ }
 
 
 /**
@@ -71,7 +128,7 @@
 module.exports = {
     firstReverse: firstReverse,
     alphaOrder: alphaOrder,
-    // vowelCount: vowelCount,
-    // timeConvert: timeConvert,
-    // repeatString: repeatString
+    vowelCount: vowelCount,
+    timeConvert: timeConvert,
+    repeatString: repeatString
 };
